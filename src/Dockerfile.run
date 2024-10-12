@@ -1,0 +1,6 @@
+FROM Cpr4z/lab1-RSOI
+
+COPY ./ /persons
+EXPOSE 8080
+
+RUN cd persons && cmake -DCMAKE_CXX_COMPILER:FILEPATH=/usr/bin/g++-10 -S./ -Bbuild && cd build && make && cd /
