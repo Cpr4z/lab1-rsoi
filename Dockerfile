@@ -2,6 +2,8 @@ FROM ubuntu:latest
 ENV TZ=Europe/Moscow \
     DEBIAN_FRONTEND=noninteractive
 
+CMD ["tail", "-f", "/dev/null"]
+
 RUN apt update -y && apt install -y gcc g++ gcc-10 g++-10 git clang-format \
     cmake libpqxx-dev libspdlog-dev libboost-all-dev libgtest-dev libgmock-dev && \
     git clone https://github.com/jbeder/yaml-cpp.git && \
