@@ -1,4 +1,4 @@
-FROM сpr4z/lab1-rsoi
+FROM сpr4z/lab1-rsoi:latest
 
 COPY ./ /persons
 EXPOSE 8080
