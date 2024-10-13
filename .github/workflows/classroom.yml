@@ -19,9 +19,15 @@ jobs:
         run: |
           docker build -t rsoi_lab1 --file ./Dockerfile .
 
-      - name: Run Docker container
+      - name: Check if container exists and is stopped
         run: |
-          docker run -it -d --name lab1_container --platform linux/amd64 rsoi_lab1
+          if [ $(docker ps -a -q --filter "name=lab1_container") ]; then
+            echo "Container exists, starting it..."
+            docker start lab1_container
+          else
+            echo "Container does not exist, running it..."
+            docker run -it -d --name lab1_container --platform linux/amd64 rsoi_lab1
+          fi
 
       - name: Ensure container is running
         run: |
