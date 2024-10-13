@@ -9,6 +9,33 @@ on:
       - master
       - develop
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: docker.io/cpr4z/lab1-rsoi
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build Docker image
+        run: |
+          docker build -t rsoi_lab1 --file ./Dockerfile .
+
+      - name: Check if container exists and is stopped
+        run: |
+          docker start lab1_container
+
+      - name: Ensure container is running
+        run: |
+          docker ps -q --filter "name=lab1_container" || exit 1
+
+      - name: Build project inside container
+        run: |
+          docker exec -it lab1_container mkdir build && cd build && cmake -DCMAKE_CXX_COMPILER=g++-10 ../src && make -j12
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: build-artifact
+          path: ./build
+
   unit_tests:
     needs: build
     runs-on: ubuntu-latest
@@ -26,38 +53,6 @@ jobs:
           cd build/persons_backend/unit_tests
           chmod +x persons_ut
           ./persons_ut
-  build:
-    runs-on: ubuntu-latest
-    container: docker.io/cpr4z/lab1-rsoi
-
-    steps:
-      - uses: actions/checkout@v3
-      - name: Build Docker image
-        run: |
-          docker build -t rsoi_lab1 --file ./Dockerfile .
-
-      - name: Check if container exists and is stopped
-        run: |
-          if [ $(docker ps -a -q --filter "name=lab1_container") ]; then
-            echo "Container exists, starting it..."
-            docker start lab1_container
-          else
-            echo "Container does not exist, running it..."
-            docker run -it -d --name lab1_container --platform linux/amd64 rsoi_lab1
-          fi
-
-      - name: Ensure container is running
-        run: |
-          docker ps -q --filter "name=lab1_container" || exit 1
-
-      - name: Build project inside container
-        run: |
-          docker exec -it lab1_container mkdir build && cd build && cmake -DCMAKE_CXX_COMPILER=g++-10 ../src && make -j12
-
-      - uses: actions/upload-artifact@v3
-        with:
-          name: build-artifact
-          path: ./build
 
   deploy:
     needs: unit_tests
