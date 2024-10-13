@@ -21,7 +21,7 @@ jobs:
 
       - name: Run Docker container
         run: |
-          docker run -t -d --name lab1_container --platform linux/amd64 rsoi_lab1
+          docker run -it -d --name lab1_container --platform linux/amd64 rsoi_lab1
 
       - name: Ensure container is running
         run: |
