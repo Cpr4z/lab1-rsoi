@@ -9,6 +9,23 @@ on:
       - master
       - develop
 jobs:
+  unit_tests:
+    needs: build
+    runs-on: ubuntu-latest
+    container: docker.io/cpr4z/lab1-rsoi
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@master
+        with:
+          name: build-artifact
+          path: ./build
+
+      - name: run_unit_tests
+        run: |
+          cd build/persons_backend/unit_tests
+          chmod +x persons_ut
+          ./persons_ut
   build:
     runs-on: ubuntu-latest
     container: docker.io/cpr4z/lab1-rsoi
@@ -41,24 +58,6 @@ jobs:
         with:
           name: build-artifact
           path: ./build
-
-  unit_tests:
-    needs: build
-    runs-on: ubuntu-latest
-    container: docker.io/cpr4z/lab1-rsoi
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/download-artifact@master
-        with:
-          name: build-artifact
-          path: ./build
-
-      - name: run_unit_tests
-        run: |
-          cd build/persons_backend/unit_tests
-          chmod +x persons_ut
-          ./persons_ut
 
   deploy:
     needs: unit_tests
