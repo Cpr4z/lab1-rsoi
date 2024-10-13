@@ -3,4 +3,6 @@ FROM docker.io/cpr4z/lab1-rsoi:latest
 COPY ./ /persons
 EXPOSE 8080
 
+ENV PORT=8080
+
 RUN cd persons && cmake -DCMAKE_CXX_COMPILER:FILEPATH=/usr/bin/g++-10 -S./ -Bbuild && cd build && make && cd /
