@@ -1,4 +1,4 @@
-FROM Cpr4z/lab1-RSOI
+FROM Cpr4z/lab1-rsoi
 
 COPY ./ /persons
 EXPOSE 8080

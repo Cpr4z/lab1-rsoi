@@ -7,11 +7,11 @@ on:
   pull_request:
     branches:
       - master
-      - develop 
+      - develop
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: Cpr4z/lab1-RSOI
+    container: Cpr4z/lab1-rsoi
 
     steps:
       - uses: actions/checkout@v2
