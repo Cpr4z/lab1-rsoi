@@ -15,12 +15,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: build
+      - name: Build Docker image
         run: |
-          mkdir build && cd build
-          cmake -DCMAKE_CXX_COMPILER=g++-10 ../src
-          make -j12
-      - uses: actions/upload-artifact@master
+          docker build -t rsoi_lab1 --file ./Dockerfile .
+      - name: Run Docker container
+        run: |
+          docker run -d --name lab1_container rsoi_lab1
+      - name: Build project inside container
+        run: |
+          docker exec lab1_container mkdir build && cd build && cmake -DCMAKE_CXX_COMPILER=g++-10 ../src && make -j12
+      - uses: actions/upload-artifact@v3
         with:
           name: build-artifact
           path: ./build
