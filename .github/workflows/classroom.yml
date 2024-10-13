@@ -49,8 +49,8 @@ jobs:
     steps:
       - uses: ashishkujoy/render-deploy@v1.0.5
         with:
-          service-id:
-          service-key:
-          api-key:
+          service-id: 45ad789b9e1676d29e7c90242a42ac91
+          service-key: a05dcde78ad00a1d81ce44d388e94f04
+          api-key: 5bba4fcd8d77371f811b90350a86ee81
           max-deployment-wait-ms: 3600000
           delay-in-ms: 10000
