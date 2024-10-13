@@ -1,5 +1,7 @@
 FROM docker.io/cpr4z/lab1-rsoi:latest
 
+CMD ["tail", "-f", "/dev/null"]
+
 COPY ./ /persons
 EXPOSE 8080
 
