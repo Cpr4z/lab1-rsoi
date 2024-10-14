@@ -21,7 +21,7 @@ jobs:
 
       - name: Check if container exists and is stopped
         run: |
-          docker start lab1_container
+          docker start -it -d lab1_container
 
       - name: Ensure container is running
         run: |
