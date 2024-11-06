@@ -15,6 +15,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Set up job container
+        uses: addnab/docker-run-action@v3
+        with:
+          image: cpr4z/lab1-rsoi
+          options: --network host
       - name: build
         run: |
           mkdir build && cd build
