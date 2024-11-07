@@ -75,7 +75,7 @@ jobs:
         run: |
           echo "$SSH_PRIVATE_KEY" > id_ed25519
           chmod 600 id_ed25519
-          scp -o StrictHostKeyChecking=no -i id_ed25519 -r ../../lab1-template/ ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }}:~/app
+          scp -o StrictHostKeyChecking=no -i id_ed25519 -r ./* ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }}:~/app
           rm id_ed25519
 
 
