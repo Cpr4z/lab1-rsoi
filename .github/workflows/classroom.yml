@@ -69,7 +69,9 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             mkdir -p ~/app
-            rsync -avz -e "ssh -i ~/.ssh/id_ed25519" ../../lab1-template/ ~/app
+      - name: Transfer files to Yandex VM
+        run: scp -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 -r ../../lab1-template/ VM_USER@VM_HOST:~/app
+
 
   deploy:
     needs: build
