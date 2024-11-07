@@ -5,7 +5,7 @@ DB_PERSONS:
   DB_NAME: "persons"
   DB_USER: "postgres"
   DB_USER_PASSWORD: "NqMBfpHMEjAZXJBiSVJMHaMitffwqNQR"
-  DB_HOST: "postgres.railway.internal"
+  DB_HOST: "127.0.0.1"
   DB_PORT: 7034
 
 DB_PERSONS_TEST:
