@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: lab1-rsoi
+    container: cpr4z/lab1-rsoi
 
     steps:
       - uses: actions/checkout@v2
@@ -28,7 +28,7 @@ jobs:
   unit_tests:
     needs: build
     runs-on: ubuntu-latest
-    container: lab1-rsoi
+    container: cpr4z/lab1-rsoi
 
     steps:
       - uses: actions/checkout@v2
