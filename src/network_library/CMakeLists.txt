@@ -1,5 +1,8 @@
 project(NetworkLib)
 
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 add_library(${PROJECT_NAME} SHARED
         router/RequestHandlerContext.h
         router/router.cpp
@@ -89,7 +92,7 @@ target_include_directories( ${PROJECT_NAME} PRIVATE
 target_link_libraries( ${PROJECT_NAME} PRIVATE
         base
         Boost::boost
-        /opt/homebrew/Cellar/yaml-cpp/0.8.0/lib/libyaml-cpp.dylib
+#        /opt/homebrew/Cellar/yaml-cpp/0.8.0/lib/libyaml-cpp.dylib
 #        ${YAMLCPP_LIBRARIES}
 #        nlohmann_json::nlohmann_json
         ${LIBPQ_LIBRARIES}

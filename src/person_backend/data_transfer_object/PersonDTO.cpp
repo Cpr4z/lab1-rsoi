@@ -36,7 +36,7 @@ std::string PersonDTO::toJSON() const {
     return root.dump();
 }
 
-std::string ToJson(const PersonsDTO& persons)
+std::string ToJSON(const PersonsDTO& persons)
 {
     nlohmann::json arr = nlohmann::json::array();
 

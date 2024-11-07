@@ -1,8 +1,9 @@
 #pragma once
 
-#include <config/IConfig.h>
+//#include <config/IConfig.h>
+#include "../../../base/include/config/IConfig.h"
 
-#include "../../base/include/config/base_constants.h"
+#include "../../../base/include/config/base_constants.h"
 
 #include <functional>
 #include <map>

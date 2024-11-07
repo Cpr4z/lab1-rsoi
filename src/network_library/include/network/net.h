@@ -1,7 +1,7 @@
 #pragma once
 
 #include "net_asio.h"
-#include "../../base/include/config/IConfig.h"
+#include "../../../base/include/config/IConfig.h"
 
 #include "../request_response_support/IResponseFactory.h"
 #include "../request_handler/IServerRequestHandler.h"

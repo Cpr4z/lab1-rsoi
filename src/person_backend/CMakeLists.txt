@@ -1,38 +1,10 @@
 project(person_backend)
 
-add_executable(${PROJECT_NAME}
-        unit_tests/PersonFacadeTest.h
-        unit_tests/PersonsRepositoryMock.h
-        unit_tests/PersonFacadeTest.cpp
-        unit_tests/main.cpp)
+add_executable(${PROJECT_NAME})
 
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 20)
 
 target_sources( ${PROJECT_NAME} PRIVATE
-        main.cpp
-
-        data_transfer_object/PersonDTO.h
-        data_transfer_object/PersonDTO.cpp
-        data_transfer_object/PersonPatchDTO.h
-        data_transfer_object/PersonPostDTO.cpp
-        data_transfer_object/PersonPostDTO.h
-
-        utils/PersonsGateway.h
-        utils/PersonsGateway.cpp
-        utils/PersonsServerHandler.h
-        utils/PersonServerHandler.cpp
-
-        person_facade/person_facade.h
-        person_facade/person_facade.cpp
-
-        database_manager/IPersonsRepository.h
-        database_manager/PostgresPersonsRepository.h
-        database_manager/PostgresPersonsRepository.cpp
-        database_manager/PersonsDA.h
-        database_manager/PersonsDA.cpp
-)
-
-add_library(backend_person
         main.cpp
 
         data_transfer_object/PersonDTO.h

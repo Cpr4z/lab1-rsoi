@@ -6,7 +6,7 @@
 
 #include <boost/shared_ptr.hpp>
 
-#include "../../base/include/exceptions/server_exceptions.h"
+#include "../../../base/include/exceptions/server_exceptions.h"
 
 using headers_t = std::map<std::string, std::string>;
 

@@ -1,7 +1,6 @@
 project(base)
 
-add_library(${PROJECT_NAME} STATIC
-        config_utils/config_creators.cpp)
+add_library(${PROJECT_NAME} STATIC)
 
 target_sources( ${PROJECT_NAME} PRIVATE
         include/exceptions/base_exception.h
@@ -27,6 +26,8 @@ target_sources( ${PROJECT_NAME} PRIVATE
 #
 #include_directories(${nlohmann_json_INCLUDE_DIRS})
 #find_package(yaml-cpp REQUIRED)
+
+target_compile_options(base PRIVATE -fPIC)
 
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(YAMLCPP REQUIRED yaml-cpp)

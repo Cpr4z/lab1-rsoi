@@ -1,6 +1,6 @@
 #include "write_awaiter.h"
 
-#include <boost/bind.hpp>
+//#include <boost/bind.hpp>
 
 WriteAwaiter AsyncWrite(tcp::socket &socket, net::const_buffer buffer)
 {
