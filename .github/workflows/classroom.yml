@@ -92,4 +92,4 @@ jobs:
           script: |
             cd ~/app
             docker pull cpr4z/lab1-disp
-            docker-compose -f ../docker-compose.yml up -d --build
+            docker-compose -f docker-compose.yml up -d --build
