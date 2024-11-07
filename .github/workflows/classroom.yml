@@ -70,7 +70,7 @@ jobs:
           script: |
             mkdir -p ~/app
       - name: Transfer files to Yandex VM
-        run: scp -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 -r ../../lab1-template/ VM_USER@VM_HOST:~/app
+        run: scp -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 -r ../../lab1-template/ ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }}:~/app
 
 
   deploy:
