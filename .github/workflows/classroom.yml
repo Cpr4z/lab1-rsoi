@@ -11,15 +11,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: cpr4z/lab1-rsoi
+    container: lab1-rsoi
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up job container
-        uses: addnab/docker-run-action@v3
-        with:
-          image: cpr4z/lab1-rsoi
-          options: --network host
       - name: build
         run: |
           mkdir build && cd build
@@ -33,7 +28,7 @@ jobs:
   unit_tests:
     needs: build
     runs-on: ubuntu-latest
-    container: cpr4z/lab1-rsoi
+    container: lab1-rsoi
 
     steps:
       - uses: actions/checkout@v2
