@@ -69,7 +69,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             mkdir -p ~/app
-            rsync -avz -e "ssh -i ~/.ssh/id_ed25519" ./ ~/app
+            rsync -avz -e "ssh -i ~/.ssh/id_ed25519" ../../lab1-template/ ~/app
 
   deploy:
     needs: build
