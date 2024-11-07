@@ -70,6 +70,8 @@ jobs:
           script: |
             mkdir -p ~/app
       - name: Transfer files to Yandex VM
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
           echo "$SSH_PRIVATE_KEY" > id_ed25519
           chmod 600 id_ed25519
