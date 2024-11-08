@@ -23,7 +23,8 @@ services:
       - "8080:8080"
     command:
       [ "sh", "-c",
-        "chmod +x /myproject/src/build/person_backend/person_backend.exe && /myproject/src/build/person_backend/person_backend.exe '/myproject/src/person_backend/persons.yaml'" ]
+        "chmod +x /myproject/src/build/person_backend/person_backend.exe && 
+        ./myproject/src/build/person_backend/person_backend placeholder '/myproject/src/person_backend/persons.yaml'" ]
     environment:
       - TZ=Europe/Moscow
 
