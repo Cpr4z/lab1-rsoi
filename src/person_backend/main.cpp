@@ -1,3 +1,4 @@
+#include <iostream>
 #include "../network_library/include/network/net.h"
 #include "../base/include/config/config_creators.h"
 #include "../base/include/logger/LoggerFactory.h"
@@ -12,13 +13,12 @@
 
 int main(int argc, char *argv[])
 {
-    if (argc != 2)
-    {
-        return 1;
-    }
+    std::cout << "Persons App was started" << std::endl;
 
-    boost::shared_ptr<IConfig> config = createYAMLConfig(std::string(argv[1]));
+    boost::shared_ptr<IConfig> config = createYAMLConfig(std::string(argv[0]));
     LoggerFactory::initLogger(config);
+
+    std::cout << "Config is loaded" << std::endl;
 
     PersonFacade::Instance()->init(createPersonsRepository(config, PersonBD));
 
@@ -30,7 +30,9 @@ int main(int argc, char *argv[])
 
     net::io_context ioc;
     auto connection = CreateServerConnection(ioc, sessionCreator, config);
+    std::cout << "Starting server event loop..." << std::endl;
     connection->Run();
+    std::cout << "Server event loop ended." << std::endl;
 
     return 0;
 }
