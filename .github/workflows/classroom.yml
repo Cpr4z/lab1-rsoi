@@ -27,7 +27,7 @@ jobs:
           EXISTS=$(docker manifest inspect cpr4z/lab1-disp:latest > /dev/null && echo "yes" || echo "no")
           echo "EXISTING_IMAGE=$EXISTS" >> $GITHUB_ENV
       - name: Build and Push Docker Image
-        if: env.EXISTING_IMAGE == 'no'
+        if: env.EXISTING_IMAGE == 'yes'
         run: |
           docker build -t cpr4z/lab1-disp:latest .
           docker push cpr4z/lab1-disp:latest
