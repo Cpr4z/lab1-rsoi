@@ -1,11 +1,10 @@
 project(person_backend)
 
-add_executable(${PROJECT_NAME})
+add_executable(${PROJECT_NAME} main.cpp)
 
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 20)
 
 target_sources( ${PROJECT_NAME} PRIVATE
-        main.cpp
 
         data_transfer_object/PersonDTO.h
         data_transfer_object/PersonDTO.cpp
