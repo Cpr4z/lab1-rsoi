@@ -17,5 +17,3 @@ WORKDIR /myproject/src
 RUN mkdir build && cd build && \
     cmake .. -DCMAKE_BUILD_TYPE=Release && \
     make
-
-#CMD ["/myproject/build/person_backend", "/myproject/person_backend/persons.yml"]
