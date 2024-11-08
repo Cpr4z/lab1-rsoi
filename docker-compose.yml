@@ -19,8 +19,6 @@ services:
     image: cpr4z/lab1-disp:latest
     depends_on:
       - postgres
-    volumes:
-      - .:/myproject
     command: [ "/myproject/src/build/person_backend", "/myproject/src/person_backend/persons.yml" ]
     environment:
       - TZ=Europe/Moscow
