@@ -1,5 +1,17 @@
 version: "3"
 services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+    volumes:
+      - .:/myproject
+    command: [ "/myproject/build/person_backend", "/myproject/person_backend/persons.yml" ]
+    environment:
+      - TZ=Europe/Moscow
+
   postgres:
     image: library/postgres:13
     container_name: postgres
