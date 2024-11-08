@@ -8,41 +8,6 @@ on:
     branches:
       - master
       - develop
-#jobs:
-#  build:
-#    runs-on: ubuntu-latest
-#    container: cpr4z/lab1-rsoi
-#
-#    steps:
-#      - uses: actions/checkout@v2
-#      - name: build
-#        run: |
-#          mkdir build && cd build
-#          cmake -DCMAKE_CXX_COMPILER=g++-10 ../src
-#          make -j12
-#      - uses: actions/upload-artifact@master
-#        with:
-#          name: build-artifact
-#          path: ./build
-#
-#  unit_tests:
-#    needs: build
-#    runs-on: ubuntu-latest
-#    container: cpr4z/lab1-rsoi
-#
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: actions/download-artifact@master
-#        with:
-#          name: build-artifact
-#          path: ./build
-#
-#      - name: run_unit_tests
-#        run: |
-#          cd build/persons-service/unit_tests
-#          chmod +x persons_ut
-#          ./persons_ut
-
 
 jobs:
   build:
@@ -97,8 +62,12 @@ jobs:
   unit_tests:
     needs: build
     runs-on: ubuntu-latest
-
     steps:
+      - name: Build and upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifact
+          path: ./build
       - uses: actions/checkout@v2
       - uses: actions/download-artifact@master
         with:
