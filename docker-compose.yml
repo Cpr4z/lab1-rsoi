@@ -22,9 +22,10 @@ services:
     ports:
       - "8080:8080"
     command:
-      [ "sh", "-c",
-        "chmod +x /myproject/src/build/person_backend/person_backend.exe && 
-        ./myproject/src/build/person_backend/person_backend placeholder '/myproject/src/person_backend/persons.yaml'" ]
+      [
+        "sh", "-c",
+        "chmod +x /myproject/src/build/person_backend/person_backend && /myproject/src/build/person_backend/person_backend placeholder '/myproject/src/person_backend/persons.yaml'"
+      ]
     environment:
       - TZ=Europe/Moscow
 
