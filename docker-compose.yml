@@ -24,7 +24,7 @@ services:
     command:
       [
         "sh", "-c",
-        "chmod +x /myproject/src/build/person_backend/person_backend && /myproject/src/build/person_backend/person_backend placeholder '/myproject/src/person_backend/persons.yaml'"
+        "ls -l /myproject/src/build/person_backend && echo 'Running...' && /myproject/src/build/person_backend/person_backend placeholder /myproject/src/person_backend/persons.yaml"
       ]
     environment:
       - TZ=Europe/Moscow
