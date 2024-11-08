@@ -12,7 +12,7 @@ RUN apt update -y && apt install -y gcc g++ gcc-10 g++-10 git clang-format \
     cd /usr/src/googletest/googletest && cmake . && make && cp lib/*.a /usr/lib
 
 COPY . /myproject
-WORKDIR /myproject
+WORKDIR /myproject/src
 
 RUN mkdir build && cd build && \
     cmake .. -DCMAKE_BUILD_TYPE=Release && \
