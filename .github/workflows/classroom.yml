@@ -29,7 +29,7 @@ jobs:
       - name: Build and Push Docker Image
         if: env.EXISTING_IMAGE == 'no'
         run: |
-          docker build -t cpr4z/lab1-disp:latest -f ../../src/Dockerfile.run .
+          docker build -t cpr4z/lab1-disp:latest -f src/Dockerfile.run .
           docker push cpr4z/lab1-disp:latest
 
       - name: Copy code to Yandex VM
