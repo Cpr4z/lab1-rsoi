@@ -1,15 +1,14 @@
 project(persons_ut CXX)
 
-add_executable(${PROJECT_NAME})
+add_executable(${PROJECT_NAME}
+        main.cpp
+        PersonFacadeTest.cpp
+        PersonFacadeTest.h
+        PersonsRepositoryMock.h)
 
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 20)
 
 target_sources( ${PROJECT_NAME} PRIVATE
-        main.cpp
-        PersonFacadeTest.h
-        PersonFacadeTest.cpp
-        PersonsRepositoryMock.h
-
         ../person_facade/person_facade.h
         ../person_facade/person_facade.cpp
 )

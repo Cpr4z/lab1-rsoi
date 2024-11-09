@@ -5,7 +5,7 @@ DB_PERSONS:
   DB_NAME: "persons"
   DB_USER: "postgres"
   DB_USER_PASSWORD: "NqMBfpHMEjAZXJBiSVJMHaMitffwqNQR"
-  DB_HOST: "0.0.0.0"
+  DB_HOST: "postgres"
   DB_PORT: 5432
 
 DB_PERSONS_TEST:

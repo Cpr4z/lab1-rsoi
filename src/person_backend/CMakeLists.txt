@@ -2,6 +2,8 @@ project(person_backend)
 
 add_executable(${PROJECT_NAME} main.cpp)
 
+add_executable(unit_tests unit_tests/main.cpp unit_tests/PersonFacadeTest.h unit_tests/PersonFacadeTest.cpp unit_tests/PersonsRepositoryMock.h)
+
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 20)
 
 target_sources( ${PROJECT_NAME} PRIVATE

@@ -105,13 +105,8 @@ void PostgresPersonsRepository::readConfig(const IConfigPtr &conf, const std::st
 
 void PostgresPersonsRepository::connect()
 {
-//    std::string connectionCred = "dbname = " + m_name + " user = " + m_user + " password = " + m_userPassword +
-//                                 " host = " + m_host + " port = " + std::to_string(m_port);
-
-    std::string connectionCred = "dbname = " + m_name +
-                                 " user = " + m_user +
-                                 " password = " + m_userPassword +
-                                 " host = postgres port = " + std::to_string(m_port);
+    std::string connectionCred = "dbname = " + m_name + " user = " + m_user + " password = " + m_userPassword +
+                                 " host = " + m_host + " port = " + std::to_string(m_port);
 
     try
     {
